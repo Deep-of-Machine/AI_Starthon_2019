@@ -26,3 +26,9 @@ Dataset: `16_tcls_movie`
 nsml run -d 16_tcls_movie -e main.py
 ```
 
+
+## how to submit
+학습된 체크포인트 submit
+```bash
+nsml submit <ID/Session/Number> <checkpoint>
+```

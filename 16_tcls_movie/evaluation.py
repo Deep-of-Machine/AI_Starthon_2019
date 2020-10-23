@@ -24,7 +24,7 @@ def read_ground_truth(ground_truth_file):
 def evaluate(prediction, ground_truth):
    # NEET TO IMPLEMENT #3
    # Function that actually evaluates
-   return f1_score(ground_truth, prediction, average='macro')
+   return f1_score(ground_truth, prediction, average='micro')
 
 # user-defined function for evaluation metrics
 def evaluation_metrics(prediction_file: str, ground_truth_file: str):
@@ -39,14 +39,15 @@ if __name__ == '__main__':
    # --prediction is set by file's name that contains the result of inference. (nsml internally sets)
    # prediction file requires type casting because '\n' character can be contained.
    args.add_argument('--prediction', type=str, default='pred.txt')
+   args.add_argument('--test_label_path', type=str)
    config = args.parse_args()
    # When push dataset, if you push with leaderboard option, automatically test_label is existed on test/test_label path, set to proper path.
    # You should type dataset's name that wants to upload on [dataset] section.
-   test_label_path = '/data/16_tcls_movie/test/test_label'
+   # test_label_path = '/data/16_tcls_movie/test/test_label'
    # print the evaluation result
    # evaluation prints only int or float value.
 
    try:
-      print(evaluation_metrics(config.prediction, test_label_path))
+      print(evaluation_metrics(config.prediction, config.test_label_path))
    except:
       print(0.0)
