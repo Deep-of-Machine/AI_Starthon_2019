@@ -36,7 +36,7 @@ nsml submit <ID/Session/Number> <checkpoint>
 ```
 
 
-## how to upload_datase
+## how to upload_dataset
 리더보드 관리자를 위한 기능입니다.
 ```bash
 cd 16_tcls_movie_dataset_small
