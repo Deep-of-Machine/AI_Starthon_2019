@@ -24,6 +24,7 @@ Dataset: `16_tcls_movie`
 베이스라인 모델 학습 시작
 ```bash
 nsml run -d 16_tcls_movie -e main.py
+nsml run -d 16_tcls_movie_small -e main.py
 ```
 
 
@@ -31,4 +32,11 @@ nsml run -d 16_tcls_movie -e main.py
 학습된 체크포인트 submit
 ```bash
 nsml submit <ID/Session/Number> <checkpoint>
+```
+
+
+## how to upload_dataset
+```bash
+cd 16_tcls_movie_dataset_small
+../ai_nsml/nsml dataset push -a -l 16_tcls_movie_small .
 ```

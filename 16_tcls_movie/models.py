@@ -48,6 +48,7 @@ class Regression(nn.Module):
         # 뉴럴네트워크를 지나 결과를 출력합니다.
         embeds = self.embeddings(data_in_torch)
         hidden = self.fc1(embeds.view(batch_size, -1))
+        hidden = torch.relu(hidden)
         hidden = self.fc2(hidden)
         hidden = torch.relu(hidden)
         output = self.fc3(hidden)
@@ -94,6 +95,7 @@ class Classification(nn.Module):
         # 뉴럴네트워크를 지나 결과를 출력합니다.
         embeds = self.embeddings(data_in_torch)
         hidden = self.fc1(embeds.view(batch_size, -1))
+        hidden = torch.relu(hidden)
         hidden = self.fc2(hidden)
         hidden = torch.relu(hidden)
         output = self.fc3(hidden)
